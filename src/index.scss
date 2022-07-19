@@ -1,0 +1,13 @@
+@import "assets/style/core";
+@import "assets/style/adaptive";
+
+html, body{
+  background: $bg-color;
+}
+
+* {
+  color: $light-dark;
+  font-family: 'Object Sans';
+  font-style: normal;
+  font-weight: 400;
+}

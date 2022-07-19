@@ -1,0 +1,73 @@
+@import "variable";
+
+
+button:hover, a:hover {
+  cursor: pointer;
+}
+
+.logo {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 100%;
+  letter-spacing: -0.16em;
+  color: $main-dark;
+}
+
+.light_button {
+  width: 15rem;
+  height: 2.9rem;
+  border: 1px solid $main-blue;
+  border-radius: 8px;
+  color: $main-blue;
+  font-size: 0.9rem;
+  background: transparent;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    background: $main-blue;
+    color: $bg-color;
+  }
+}
+
+
+.accent_button {
+  color: $bg_color;
+  width: 16rem;
+  height: 3.9rem;
+  background: $main-blue;
+  box-shadow: 0 5px 0.75rem rgba(46, 109, 254, 0.2);
+  border-radius: 8px;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+
+.flex_container {
+  display: flex;
+  align-items: center;
+
+  &__column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.grid_container__halved {
+  display: grid;
+  grid-template-columns:50% 50%;
+}
+
+.container__absolute {
+  position: absolute;
+}
+
+.container__relative {
+  position: relative;
+}
+
+.container__centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
