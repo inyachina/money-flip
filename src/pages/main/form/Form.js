@@ -1,11 +1,15 @@
 import React, {useState} from "react";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import './form.scss';
+import './adaptiveForm.scss';
 import sber from '../../../assets/img/sber-logo.svg'
 import tinkoff from '../../../assets/img/tinkoff-logo.svg'
 import bitcoin from '../../../assets/img/bitcoin-logo.svg'
 import ethereum from '../../../assets/img/ethereum-logo.svg'
 import dollar from '../../../assets/img/dollar-logo.svg'
 import aed from '../../../assets/img/aed-logo.svg'
+import triangle from '../../../assets/img/triangle.svg'
 
 export const Form = () => {
     const path = '../../../assets/img/'
@@ -49,11 +53,34 @@ export const Form = () => {
         if (index !== receiveIndex) setReceiveIndex(index)
     }
 
+    const [name, setName] = useState()
+    const [phone, setPhone] = useState()
+    const [telegram, setTelegram] = useState()
+    const [person, setPerson] = useState()
+    const [comment, setComment] = useState()
+
+    const handleName = event => {
+        const result = event.target.value.replace(/[^a-zа-яё ]/gi, '');
+        setName(result);
+    };
+
+    const handleTelegram = event => {
+        setTelegram(event.target.value);
+    };
+
+    const handlePerson = title => {
+        setPerson(title);
+    }
+
+    const handleComment = event => {
+        setComment(event.target.value);
+    };
+
     return (
         <div id="form" className="grid_container__halved">
             <div className="grid_container__halved">
-                <div className="column flex_container__column">
-                    <div className="title">Отдаете</div>
+                <div className="column flex_container__column desktop">
+                    <div className="title ">Отдаете</div>
                     {
                         banks.map((bank, index) =>
                             <button className={`bank_btn flex_container ${index === sendIndex && 'active_bank_btn'}`}
@@ -68,7 +95,7 @@ export const Form = () => {
                             </button>)
                     }
                 </div>
-                <div className="column flex_container__column">
+                <div className="column flex_container__column desktop">
                     <div className="title">Получаете</div>
                     {
                         banks.map((bank, index) =>
@@ -84,19 +111,94 @@ export const Form = () => {
                     }
                 </div>
             </div>
-            <div id="sending_form" className="flex_container__column column">
-                <div className="title">Обмен</div>
+            <div className="title mobile">Обмен</div>
+            <form id="sending_form">
+                <div className="title desktop">Обмен</div>
                 <div>
-                    <div className="sending_form__container grid_container__halved">
-                        <div className="sending_form__img-input">
-                            {sendIndex !== undefined ?
-                                <img className="dump" src={banks[sendIndex].img}/> :
-                                <div className="dump"/>}
-                            <input/>
+                    <div className="grid_container__halved form_container">
+                        <div className="sending_form__column">
+                            <div className="sending_form__img-input desktop">
+                                {sendIndex !== undefined ?
+                                    <img className="dump" src={banks[sendIndex].img}/> :
+                                    <div className="dump"/>}
+                                <input type="number"
+                                       min={1}
+                                       required={true}
+                                       tabIndex={0}/>
+                            </div>
+                            <div className="mobile">
+                                <div
+                                    className="exchange_title">Одаёте:<span>{sendIndex ? banks[sendIndex].name : ''}</span>
+                                </div>
+                                <select>
+                                    {banks.map((bank, index) =>
+                                        <option value={index} style={{background: `url(${bank.img})`}}>
+                                            {/*<div><img src={bank.img}/>{bank.name}</div>*/}
+                                    </option>)}
+                                </select>
+                                <div
+                                    className="exchange_title">Получаете:<span>{receiveIndex ? banks[receiveIndex].name : ''}</span>
+                                </div>
+                            </div>
+                            <input placeholder="Имя"
+                                   value={name}
+                                   required={true}
+                                   onChange={handleName}/>
+                            <PhoneInput
+                                required={true}
+                                placeholder="(999) 99-99-99"
+                                country={'ru'}
+                                value={phone}
+                                classname="phone_input"
+                                onChange={setPhone}/>
+                            <input placeholder="Telegram"
+                                   value={telegram}
+                                   required={true}
+                                   onChange={handleTelegram}/>
                         </div>
+                        <div className="sending_form__column sending_form__column_right">
+                            <div className="flex_container desktop">
+                                <img className="triangle" src={triangle}/>
+                                <div className="sending_form__img-input">
+                                    {receiveIndex !== undefined ?
+                                        <img className="dump" src={banks[receiveIndex].img}/> :
+                                        <div className="dump"/>}
+                                    <input type="number"
+                                           required={true}
+                                           min={1}
+                                           tabIndex={1}/>
+                                </div>
+                            </div>
+                            <div className="flex_container">
+                                <div className="radio_button first_radio_button">
+                                    <input id="phys" required={true} type="radio" name="person"/>
+                                    <label
+                                        for="phys"
+                                        onClick={() => handlePerson('физлицо')}
+                                        className="first_radio_button">Физлицо</label>
+                                </div>
+                                <div className="radio_button ">
+                                    <input id="ur" type="radio" name="person"/>
+                                    <label
+                                        for="ur"
+                                        onClick={() => handlePerson('юрлицо')}
+                                        className="second_radio_button">Юрлицо</label>
+                                </div>
+                            </div>
+                            <textarea
+                                placeholder={"Комментарий..."}
+                                onChange={handleComment}/>
+                        </div>
+
+                    </div>
+                    <button className="accent_button">Отправить заявку</button>
+                    <div className="agreement">Нажимая на кнопку «Отправить заявку», <span>вы соглашаетесь с
+                        <a> правилами
+                        обмена</a></span>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
+
 }

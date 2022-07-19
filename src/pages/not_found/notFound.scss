@@ -1,0 +1,79 @@
+@import "src/assets/style/core";
+
+#notFoundPage {
+  //height: calc(100vh - 10vh - 17rem);
+  height: 100vh;
+
+  .title {
+    font-size: 5rem;
+    color: $main-dark;
+  }
+
+  .sub_title {
+    font-size: 2rem;
+  }
+
+  .light_spot {
+    position: absolute;
+    height: 30rem;
+  }
+
+  .accent_spot {
+    height: 20rem;
+    position: absolute;
+    right: 0;
+    top: -1rem;
+  }
+
+  .json_container__relative {
+    pointer-events: none;
+    position: relative;
+    height: 35rem;
+    width: 37rem;
+    margin-top: 5rem;
+  }
+
+  .json_container__absolute {
+    position: absolute;
+    width: 52rem;
+    top: -10rem;
+    left: -10rem;
+  }
+}
+
+@media (max-width: 850px) {
+  #notFoundPage {
+    display: flex;
+    flex-direction: column;
+    padding: 10vh 2vw;
+    max-height: 40rem;
+    .light_spot {
+      width: 94vw;
+      height: 80vw;
+      max-width: 20rem;
+      max-height: 17rem;
+    }
+
+    .accent_spot {
+      width: 64vw;
+      max-width: 20rem;
+      max-height: 17rem;
+      height: 50vw;
+    }
+
+    .json_container__relative {
+      width: 94vw;
+      max-width: 20rem;
+      max-height: 20rem;
+    }
+
+    .json_container__absolute {
+      width: 150vw;
+      max-width: 40rem;
+      top: -10rem;
+      left: -10rem;
+
+    }
+
+  }
+}

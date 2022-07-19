@@ -1,0 +1,46 @@
+@import "../../../assets/style/core";
+
+@media (max-width: 1100px) {
+  #form {
+    display: block;
+    margin: 5rem 1rem 3rem 1rem;
+
+    .title {
+      font-weight: 700;
+      font-size: 2.6rem;
+      margin-top: 5rem;
+    }
+
+    .mobile {
+      display: block
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .form_container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .sending_form__column_right {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1200px) {
+
+  #form {
+
+    .column {
+      padding: 2rem 1rem;
+
+      .bank_title {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

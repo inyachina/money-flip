@@ -12,9 +12,9 @@ export const Header = () => {
 
     return (
         <div id="header" className="flex_container">
-            <div className="logo">MONEYFLIP</div>
+            <a className="logo" href="/" >MONEYFLIP</a>
             <div className="links flex_container">
-                <a>О нас</a>
+                <a href='/aboutUs'>О нас</a>
                 <a>Правила обмена</a>
                 <button className="light_button">Написать в WhatsApp</button>
             </div>
@@ -28,7 +28,7 @@ export const Header = () => {
                 <div id="navbar">
                     <img src={white_close} id="white_close" onClick={closeMenu}/>
                     <div className="menu_links flex_container__column">
-                        <a>О нас</a>
+                        <a href="/aboutUs">О нас</a>
                         <a>Правила обмена</a>
                     </div>
                     <div className="contacts flex_container__column">

@@ -65,10 +65,6 @@
     .accent_button {
       margin-top: 1rem;
       font-size: 1rem;
-      &:hover {
-        background: $main-dark!important;
-        color: $bg-color;
-      }
     }
 
 
@@ -105,7 +101,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   #about {
     display: flex;
     flex-direction: column;
@@ -132,9 +128,6 @@
 
       }
 
-      .accent_button {
-        width: 100%;
-      }
     }
 
     .right_side {
@@ -143,23 +136,38 @@
       .light_spot {
         width: 94vw;
         height: 80vw;
+        max-width: 20rem;
+        max-height: 17rem;
       }
 
       .accent_spot {
         width: 64vw;
         height: 50vw;
+        max-width: 13rem;
+        max-height: 11rem;
       }
 
       .json_container__relative {
         width: 94vw;
+        max-width: 20rem;
+        max-height: 20rem;
       }
 
       .json_container__absolute {
         width: 150vw;
+        max-width: 40rem;
         top: -10rem;
         left: -10rem;
 
       }
+    }
+  }
+}
+
+@media (max-width: 500px){
+  #about {
+    .accent_button {
+      width: 100%;
     }
   }
 }
