@@ -1,31 +1,26 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './select.scss'
-import $ from 'jquery';
-
-import sber from '../../assets/img/sber-logo.svg'
 
 export const SelectImg = (props) => {
-
+    const [index, setIndex] = useState(0)
     useEffect(() => {
     })
     const handleChange = () => {
 
     }
-    return <div className="select-sim" id="select-color">
-        <div className="options">
-            <div className="option">
-                <input type="radio" name="color" value="yellow" id="color-yellow"/>
-                <label htmlFor="color-yellow">
-                    <img src={sber} alt=""/> Yellow
-                </label>
-            </div>
-            <div className="option">
-                <input type="radio" name="color" value="pink" id="color-pink"/>
-                <label htmlFor="color-pink">
-                    <img src={sber} alt=""/> Pink
-                </label>
-            </div>
-
+    return <div className="sending_form__img-select ">
+        <div className="dump_container container__centered">
+            {index !== undefined ?
+                <img className="dump" src={props.banks[index].img}/> :
+                <div className="dump"/>}
         </div>
+        <select className="select_img ">
+            {/*<option style={{backgroundImage: `url(${sber}sber)`}}>male</option>*/}
+            {props.banks.map((bank, i) =>
+                <option key={i}>{bank.name}</option>
+            )}
+        </select>
     </div>
+
+
 }
