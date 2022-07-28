@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import useFetch from 'use-http'
 import PhoneInput from 'react-phone-input-2'
+import data from '../../../data.json'
 import 'react-phone-input-2/lib/style.css'
 import './form.scss';
 import './adaptiveForm.scss';
@@ -10,9 +12,14 @@ import ethereum from '../../../assets/img/ethereum-logo.svg'
 import dollar from '../../../assets/img/dollar-logo.svg'
 import aed from '../../../assets/img/aed-logo.svg'
 import triangle from '../../../assets/img/triangle.svg'
+import {SelectImg} from "../../components/SelectImg";
 
 export const Form = () => {
-    const path = '../../../assets/img/'
+    const headers = {
+        "Access-Control-Allow-Origin": '*'
+    }
+    const useFetchWithHeaders = (req, opts) => useFetch(req, {...opts, headers});
+    const {request, response} = useFetchWithHeaders(data.server_url)
     const banks = [
         {
             name: 'Сбербанк RUB',
@@ -40,8 +47,46 @@ export const Form = () => {
             bg: '#FFCBD5'
         },
     ]
+    // const [sendIndex, setSendIndex] = useState(0)
+    // const [receiveIndex, setReceiveIndex] = useState(1)
+    // const [sendAmount, setSendAmount] = useState(123)
+    // const [receiveAmount, setReceiveAmount] = useState(123)
+    // const [name, setName] = useState("lala")
+    // const [phone, setPhone] = useState("324")
+    // const [telegram, setTelegram] = useState("dasdas")
+    // const [person, setPerson] = useState("Физилицо")
+    // const [comment, setComment] = useState("comment")
+
     const [sendIndex, setSendIndex] = useState()
     const [receiveIndex, setReceiveIndex] = useState()
+    const [sendAmount, setSendAmount] = useState()
+    const [receiveAmount, setReceiveAmount] = useState()
+    const [name, setName] = useState()
+    const [phone, setPhone] = useState()
+    const [telegram, setTelegram] = useState()
+    const [person, setPerson] = useState()
+    const [comment, setComment] = useState()
+
+    useEffect(() => {
+
+    })
+
+    async function onSubmit(e) {
+        e.preventDefault();
+        await request.post('/sendMail', {
+            sendBank: banks[sendIndex].name,
+            receiveBank: banks[receiveIndex].name,
+            sendAmount,
+            receiveAmount,
+            name,
+            phone,
+            telegram,
+            person,
+            comment
+        })
+        if (response.ok) alert("super")
+    }
+
     const clickSend = (index) => {
         if (sendIndex !== undefined && index === receiveIndex) return;
 
@@ -53,28 +98,14 @@ export const Form = () => {
         if (index !== receiveIndex) setReceiveIndex(index)
     }
 
-    const [name, setName] = useState()
-    const [phone, setPhone] = useState()
-    const [telegram, setTelegram] = useState()
-    const [person, setPerson] = useState()
-    const [comment, setComment] = useState()
-
     const handleName = event => {
         const result = event.target.value.replace(/[^a-zа-яё ]/gi, '');
         setName(result);
     };
 
-    const handleTelegram = event => {
-        setTelegram(event.target.value);
-    };
-
     const handlePerson = title => {
         setPerson(title);
     }
-
-    const handleComment = event => {
-        setComment(event.target.value);
-    };
 
     return (
         <div id="form" className="grid_container__halved">
@@ -118,24 +149,23 @@ export const Form = () => {
                     <div className="grid_container__halved form_container">
                         <div className="sending_form__column">
                             <div className="sending_form__img-input desktop">
-                                {sendIndex !== undefined ?
-                                    <img className="dump" src={banks[sendIndex].img}/> :
-                                    <div className="dump"/>}
-                                <input type="number"
-                                       min={1}
-                                       required={true}
-                                       tabIndex={0}/>
+                                <div className="dump_container container__centered">
+                                    {sendIndex !== undefined ?
+                                        <img className="dump" src={banks[sendIndex].img}/> :
+                                        <div className="dump"/>}
+                                </div>
+                                <input
+                                    value={sendAmount}
+                                    type="number"
+                                    min={1}
+                                    required={true}
+                                    tabIndex={0}/>
                             </div>
                             <div className="mobile">
                                 <div
                                     className="exchange_title">Одаёте:<span>{sendIndex ? banks[sendIndex].name : ''}</span>
                                 </div>
-                                <select>
-                                    {banks.map((bank, index) =>
-                                        <option value={index} style={{background: `url(${bank.img})`}}>
-                                            {/*<div><img src={bank.img}/>{bank.name}</div>*/}
-                                    </option>)}
-                                </select>
+                                <SelectImg banks={banks}/>
                                 <div
                                     className="exchange_title">Получаете:<span>{receiveIndex ? banks[receiveIndex].name : ''}</span>
                                 </div>
@@ -153,20 +183,23 @@ export const Form = () => {
                                 onChange={setPhone}/>
                             <input placeholder="Telegram"
                                    value={telegram}
-                                   required={true}
-                                   onChange={handleTelegram}/>
+                                   required={true}/>
                         </div>
                         <div className="sending_form__column sending_form__column_right">
                             <div className="flex_container desktop">
                                 <img className="triangle" src={triangle}/>
                                 <div className="sending_form__img-input">
-                                    {receiveIndex !== undefined ?
-                                        <img className="dump" src={banks[receiveIndex].img}/> :
-                                        <div className="dump"/>}
-                                    <input type="number"
-                                           required={true}
-                                           min={1}
-                                           tabIndex={1}/>
+                                    <div className="dump_container container__centered">
+                                        {receiveIndex !== undefined ?
+                                            <img className="dump" src={banks[receiveIndex].img}/> :
+                                            <div className="dump"/>}
+                                    </div>
+                                    <input
+                                        value={receiveAmount}
+                                        type="number"
+                                        required={true}
+                                        min={1}
+                                        tabIndex={1}/>
                                 </div>
                             </div>
                             <div className="flex_container">
@@ -187,11 +220,15 @@ export const Form = () => {
                             </div>
                             <textarea
                                 placeholder={"Комментарий..."}
-                                onChange={handleComment}/>
+                                value={comment}/>
                         </div>
 
                     </div>
-                    <button className="accent_button">Отправить заявку</button>
+                    <button
+                        onClick={onSubmit}
+                        className="accent_button"
+                    >Отправить заявку
+                    </button>
                     <div className="agreement">Нажимая на кнопку «Отправить заявку», <span>вы соглашаетесь с
                         <a> правилами
                         обмена</a></span>
