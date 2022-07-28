@@ -176,7 +176,8 @@ export const Form = () => {
                                    onChange={handleName}/>
                             <PhoneInput
                                 required={true}
-                                placeholder="(999) 99-99-99"
+                                preferredCountries={['ru', 'kz', 'ua', 'ae' ]}
+                                // placeholder="(999) 99-99-99"
                                 country={'ru'}
                                 value={phone}
                                 classname="phone_input"
@@ -195,8 +196,10 @@ export const Form = () => {
                                             <div className="dump"/>}
                                     </div>
                                     <input
-                                        value={receiveAmount}
-                                        type="number"
+                                        className="no-left-border"
+                                        value={banks[receiveIndex]?.name}
+                                        // type="number"
+                                        disabled={true}
                                         required={true}
                                         min={1}
                                         tabIndex={1}/>
@@ -230,7 +233,7 @@ export const Form = () => {
                     >Отправить заявку
                     </button>
                     <div className="agreement">Нажимая на кнопку «Отправить заявку», <span>вы соглашаетесь с
-                        <a> правилами
+                        <a>правилами
                         обмена</a></span>
                     </div>
                 </div>

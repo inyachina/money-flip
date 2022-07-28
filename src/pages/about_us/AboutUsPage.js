@@ -1,7 +1,7 @@
 import React from "react";
 import './aboutUs.scss'
-import dubai_office from '../../assets/img/dubai_office.jpeg';
-import russia_office from '../../assets/img/russia_office.jpeg';
+import rus from '../../../src/assets/img/russia_office.jpeg'
+import dubai from '../../../src/assets/img/dubai_office.jpeg'
 
 export const AboutUsPage = () => {
     const infos = [
@@ -32,11 +32,15 @@ export const AboutUsPage = () => {
         </div>
         <div className="photos grid_container__halved">
             <div className="flex_container__column_start">
-                <div className="img dubai"/>
+                <div className="img_container">
+                    <img src={dubai} className="dubai"/>
+                </div>
                 <div className="sub_title">Офис в ОАЭ <span>Horizon Tower, Дубай</span></div>
             </div>
             <div className="flex_container__column_start">
-                <div className="img rus"/>
+                <div className="img_container">
+                    <img src={rus} className="rus"/>
+                </div>
                 <div className="sub_title">Офис в России<span>БЦ «Ситилинк», Санкт-Петербург</span></div>
             </div>
         </div>

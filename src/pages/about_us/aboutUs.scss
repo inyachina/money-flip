@@ -34,21 +34,23 @@
     width: 100%;
     margin-bottom: 6rem;
 
-    .img {
+    .img_container {
+      position: relative;
+      height: 18.5rem;
       box-shadow: 0px 5px 15px rgba(206, 206, 206, 0.25);
       border-radius: 24px;
-      height: 18rem;
-      object-fit: fill;
-      object-position: bottom;
-      margin-bottom: 0.5rem;
-    }
+      overflow: hidden;
 
-    .dubai {
-      background: url("../../../src/assets/img/dubai_office.jpeg");
-    }
+      .dubai {
+        position: absolute;
+        top: -5rem;
+      }
 
-    .rus {
-      background: url("../../../src/assets/img/russia_office.jpeg");
+      .rus {
+        position: absolute;
+        top: -9rem;
+        width: 100%;
+      }
     }
   }
 
@@ -57,6 +59,7 @@
     font-size: 0.9rem;
     font-weight: 700;
     margin-left: 0.3rem;
+    margin-top: 0.5rem;
 
     span {
       margin-left: 1rem;
