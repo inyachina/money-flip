@@ -163,6 +163,24 @@
     margin-bottom: 0.2rem;
   }
 
+  .select_inputs {
+    margin-bottom: 1rem;
+
+    .exchange_title {
+      color: #B1B1B1;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+
+      span {
+        margin-left: 0.2rem;
+      }
+
+      &_second {
+        margin-top: 1rem;
+      }
+    }
+  }
+
   .react-tel-input > input {
     width: 100% !important;
     padding-left: 4rem !important;
@@ -292,3 +310,5 @@
   border: 1px solid $main-blue;
   color: $main-blue;
 }
+
+

@@ -52,6 +52,7 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
             value={selectedOption}
             options={banks}
             prefixClassName={"select"}
+            required={true}
             isSearchable={false}
             onChange={handleChangeSelect}
             getOptionLabel={e => (

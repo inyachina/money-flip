@@ -113,19 +113,19 @@ export const Form = () => {
         setPerson(title);
     }
 
-    const handleSendAmount= (amount) =>{
+    const handleSendAmount = (amount) => {
         setSendAmount(amount);
     }
 
-    const handleReceiveAmount = (amount) =>{
+    const handleReceiveAmount = (amount) => {
         setReceiveAmount(amount);
     }
 
-    const handleSendBankIndex= ( index) =>{
+    const handleSendBankIndex = (index) => {
         setSendIndex(index);
     }
 
-    const handleReceiveBankIndex= ( index) =>{
+    const handleReceiveBankIndex = (index) => {
         setReceiveIndex(index);
     }
     return (
@@ -182,16 +182,16 @@ export const Form = () => {
                                     required={true}
                                     tabIndex={0}/>
                             </div>
-                            <div className="mobile">
+                            <div className="mobile select_inputs">
                                 <div
-                                    className="exchange_title">Одаёте:<span>{sendIndex ? banks[sendIndex].text : ''}</span>
+                                    className="exchange_title ">Одаёте:<span>{sendIndex ? banks[sendIndex].text : ''}</span>
                                 </div>
                                 <SelectImg
                                     handleBankIndex={handleSendBankIndex}
                                     handleAmount={handleSendAmount}
                                     banks={banks}/>
                                 <div
-                                    className="exchange_title">Получаете:<span>{receiveIndex ? banks[receiveIndex].text : ''}</span>
+                                    className="exchange_title exchange_title_second">Получаете:<span>{receiveIndex ? banks[receiveIndex].text : ''}</span>
                                 </div>
                                 <SelectImg
                                     handleBankIndex={handleReceiveBankIndex}
