@@ -22,28 +22,34 @@ export const Form = () => {
     const {request, response} = useFetchWithHeaders(data.server_url)
     const banks = [
         {
-            name: 'Сбербанк RUB',
-            img: sber,
+            index: 0,
+            text: 'Сбербанк RUB',
+            icon: sber,
             bg: '#C1FFB7'
         }, {
-            name: 'Тинькофф RUB',
-            img: tinkoff,
+            index: 1,
+            text: 'Тинькофф RUB',
+            icon: tinkoff,
             bg: '#F3FF6D'
         }, {
-            name: 'Bitcoin',
-            img: bitcoin,
+            index: 2,
+            text: 'Bitcoin',
+            icon: bitcoin,
             bg: '#FFC56D'
         }, {
-            name: 'Ethereum',
-            img: ethereum,
+            index: 3,
+            text: 'Ethereum',
+            icon: ethereum,
             bg: '#D7D7D7'
         }, {
-            name: 'Доллары',
-            img: dollar,
+            index: 4,
+            text: 'Доллары',
+            icon: dollar,
             bg: '#C4FFBF'
         }, {
-            name: 'Дирхамы',
-            img: aed,
+            index: 5,
+            text: 'Дирхамы',
+            icon: aed,
             bg: '#FFCBD5'
         },
     ]
@@ -107,6 +113,21 @@ export const Form = () => {
         setPerson(title);
     }
 
+    const handleSendAmount= (amount) =>{
+        setSendAmount(amount);
+    }
+
+    const handleReceiveAmount = (amount) =>{
+        setReceiveAmount(amount);
+    }
+
+    const handleSendBankIndex= ( index) =>{
+        setSendIndex(index);
+    }
+
+    const handleReceiveBankIndex= ( index) =>{
+        setReceiveIndex(index);
+    }
     return (
         <div id="form" className="grid_container__halved">
             <div className="grid_container__halved">
@@ -118,10 +139,10 @@ export const Form = () => {
                                     onClick={() => clickSend(index)}
                             >
                                 <div className="bank_base container__centered" style={{background: bank.bg}}>
-                                    <img className="bank_img" src={bank.img}/>
+                                    <img className="bank_img" src={bank.icon}/>
                                 </div>
                                 <div className="bank_title">
-                                    {bank.name}
+                                    {bank.text}
                                 </div>
                             </button>)
                     }
@@ -133,10 +154,10 @@ export const Form = () => {
                             <button className={`bank_btn flex_container ${index === receiveIndex && 'active_bank_btn'}`}
                                     onClick={() => clickReceive(index)}>
                                 <div className="bank_base container__centered" style={{background: bank.bg}}>
-                                    <img className="bank_img" src={bank.img}/>
+                                    <img className="bank_img" src={bank.icon}/>
                                 </div>
                                 <div className="bank_title">
-                                    {bank.name}
+                                    {bank.text}
                                 </div>
                             </button>)
                     }
@@ -151,7 +172,7 @@ export const Form = () => {
                             <div className="sending_form__img-input desktop">
                                 <div className="dump_container container__centered">
                                     {sendIndex !== undefined ?
-                                        <img className="dump" src={banks[sendIndex].img}/> :
+                                        <img className="dump" src={banks[sendIndex].icon}/> :
                                         <div className="dump"/>}
                                 </div>
                                 <input
@@ -163,12 +184,19 @@ export const Form = () => {
                             </div>
                             <div className="mobile">
                                 <div
-                                    className="exchange_title">Одаёте:<span>{sendIndex ? banks[sendIndex].name : ''}</span>
+                                    className="exchange_title">Одаёте:<span>{sendIndex ? banks[sendIndex].text : ''}</span>
                                 </div>
-                                <SelectImg banks={banks}/>
+                                <SelectImg
+                                    handleBankIndex={handleSendBankIndex}
+                                    handleAmount={handleSendAmount}
+                                    banks={banks}/>
                                 <div
-                                    className="exchange_title">Получаете:<span>{receiveIndex ? banks[receiveIndex].name : ''}</span>
+                                    className="exchange_title">Получаете:<span>{receiveIndex ? banks[receiveIndex].text : ''}</span>
                                 </div>
+                                <SelectImg
+                                    handleBankIndex={handleReceiveBankIndex}
+                                    handleAmount={handleReceiveAmount}
+                                    banks={banks}/>
                             </div>
                             <input placeholder="Имя"
                                    value={name}
@@ -176,7 +204,7 @@ export const Form = () => {
                                    onChange={handleName}/>
                             <PhoneInput
                                 required={true}
-                                preferredCountries={['ru', 'kz', 'ua', 'ae' ]}
+                                preferredCountries={['ru', 'kz', 'ua', 'ae']}
                                 // placeholder="(999) 99-99-99"
                                 country={'ru'}
                                 value={phone}
@@ -192,12 +220,12 @@ export const Form = () => {
                                 <div className="sending_form__img-input">
                                     <div className="dump_container container__centered">
                                         {receiveIndex !== undefined ?
-                                            <img className="dump" src={banks[receiveIndex].img}/> :
+                                            <img className="dump" src={banks[receiveIndex].icon}/> :
                                             <div className="dump"/>}
                                     </div>
                                     <input
                                         className="no-left-border"
-                                        value={banks[receiveIndex]?.name}
+                                        value={banks[receiveIndex]?.text}
                                         // type="number"
                                         disabled={true}
                                         required={true}
@@ -228,7 +256,7 @@ export const Form = () => {
 
                     </div>
                     <button
-                        onClick={onSubmit}
+                        onSubmit={onSubmit}
                         className="accent_button"
                     >Отправить заявку
                     </button>
