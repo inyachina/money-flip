@@ -2,6 +2,8 @@
 
 #form {
   margin: 6rem 3.1rem 12rem 3.1rem;
+  display: grid;
+  grid-template-columns: 40% 60%;
 
   .mobile {
     display: none;
@@ -312,3 +314,13 @@
 }
 
 
+.iban_input{
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+#__react-alert__ div div div{
+  background: rgb(217, 217, 217) !important;
+  border-radius: 10px!important;
+  width: 340px!important;
+}

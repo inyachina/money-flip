@@ -4,7 +4,7 @@ import watsup from '../../assets/img/watsup.svg';
 import menu from '../../assets/img/menu.svg';
 import white_close from '../../assets/img/white_close.svg';
 import {CSSTransition, Transition} from "react-transition-group";
-
+import data from '../../Data.json'
 export const Header = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const openMenu = () => setIsOpenMenu(true)
@@ -19,7 +19,7 @@ export const Header = () => {
                 <button className="light_button">Написать в WhatsApp</button>
             </div>
             <div className="phone_bar flex_container">
-                <img src={watsup}/>
+                <a href={data.whatsUp}><img src={watsup}/></a>
                 <img src={menu} onClick={openMenu}/>
             </div>
              <CSSTransition in={isOpenMenu}
@@ -33,8 +33,8 @@ export const Header = () => {
                     </div>
                     <div className="contacts flex_container__column">
                         <button className="accent_button">Написать в WhatsApp</button>
-                        <a>+7977777777</a>
-                        <a>+7977777777</a>
+                        <a>{data.tel_1}</a>
+                        <a>{data.tel_2}</a>
                     </div>
                 </div>
             </CSSTransition>

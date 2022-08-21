@@ -4,26 +4,32 @@ import {Player} from "@lottiefiles/react-lottie-player";
 import WorkingGirl from '../../../assets/json/Working_girl.json'
 import accentSpot from '../../../assets/img/accentSpot.png'
 import lightSpot from '../../../assets/img/lightSpot.png'
+import {Helmet} from "react-helmet";
+import axios from "axios";
 
 export const About = () => {
     const [dollar, setDollar] = useState(0)
     const [aed, setAed] = useState(0)
 
-    useEffect(() => {
+    useEffect(()=>{
+         axios.get("https://www.cbr-xml-daily.ru/daily_json.js")
+            .then((result) => {
+                setDollar(result.data.Valute.USD.Value)
+            })
     })
-
     return (
         <div id="about">
+            <Helmet type="text/javascript"  src="https://www.cbr-xml-daily.ru/money.js"/>
             <div className="left_side">
                 <div className="flex_container tools">
-                    <button className="exchange_btn">Круглосуточный обмен</button>
+                    <button className="exchange_btn">Переводы без санкций</button>
                     <span className="concurrency flex_container">
                         <div className="point container__centered">$</div>
                         <div>
-                            {dollar}
+                            {dollar.toFixed(2)}
                         </div>
                         <div>
-                            {dollar + dollar / 0.95}
+                            {(dollar + dollar / 20).toFixed(2)}
                         </div>
 
                         <div className="point container__centered">AED</div>
@@ -35,11 +41,11 @@ export const About = () => {
                         </div>
                     </span>
                 </div>
-                <div className="title">Обменивайте<br/> быстро и безопасно</div>
-                <div className="sub_title">Выгодный и легкий способ отправить ваши деньги за границу или обменять их в
-                    реальном времени 24/7. Отправляйте деньги дешевле и проще, чем у старомодных банков
+                <div className="title">Платежи для бизнеса с глобальными амбициями</div>
+                <div className="sub_title">Совершайте платежи через границу и развивайте свой бизнес, где бы вы ни
+                    находились. Быстро и безопасно. Такой и должна быть современная коммерция.
                 </div>
-                <button className="accent_button">Обменять</button>
+                <button className="accent_button">Оплатить</button>
             </div>
             <div className="right_side container__centered">
                 <div className="json_container__relative">

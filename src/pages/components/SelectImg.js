@@ -35,7 +35,7 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
             zIndex: 100,
             background: "red"
         }),
-        control: (styles, {isFocused, isSelected, isHovered}) => ({
+        control: (styles, { isHovered}) => ({
             ...styles,
             borderRadius: '10px',
             background: '#F5F5F5',
@@ -44,7 +44,7 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
         }),
     }
     return <div className="select_container">
-        <img className={"triangle"} src={triangle}/>{/*{e.icon}*/}
+        <img className={"triangle"} src={triangle}/>
         <Select
             placeholder=""
             classNamePrefix="select"
@@ -57,7 +57,7 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
             onChange={handleChangeSelect}
             getOptionLabel={e => (
                 <div className="option_container">
-                    <img src={e.icon}/>{/*{e.icon}*/}
+                    <img src={e.icon}/>
                     <span style={{marginLeft: 5}}>{e.text}</span>
                 </div>
             )}
@@ -65,7 +65,7 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
         {(withOutInput) ??
         <div className="input_container">
             <input
-                o
+                placeholder="Сумма"
                 type={"number"}
                 min={1}
                 required={true}
