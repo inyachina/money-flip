@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './notFound.scss'
 import lightSpot from "../../assets/img/lightSpot.png";
 import accentSpot from "../../assets/img/accentSpot.png";
@@ -6,6 +6,11 @@ import {Player} from "@lottiefiles/react-lottie-player";
 import WorkingGirl from "../../assets/json/Working_girl.json";
 
 export const NotFoundPage = () => {
+
+    useEffect(() => {
+        document.title = "MoneyFlip | Страница не найдена"
+    })
+
     return <div id="notFoundPage" className="grid_container__halved">
         <div className="container__centered flex_container__column">
             <div className="title">404 error</div>

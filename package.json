@@ -2,6 +2,7 @@
   "name": "money-flip",
   "version": "0.1.0",
   "private": true,
+  "title": "Money Flip",
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.4.7",
     "@testing-library/jest-dom": "^5.16.4",

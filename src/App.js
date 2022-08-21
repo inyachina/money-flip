@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Header} from "./common/header/Header";
 import {Footer} from "./common/footer/Footer";
@@ -15,6 +15,7 @@ function App() {
         offset: '30px',
         transition: transitions.SCALE
     }
+
     return (
         <div className="App">
             <AlertProvider template={AlertTemplate} {...alertOptions}>
