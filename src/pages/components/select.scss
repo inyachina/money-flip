@@ -8,11 +8,11 @@
 
   .triangle {
     position: absolute;
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 0.3rem;
+    width: 0.3rem;
     z-index: 2;
-    top: 1.6rem;
-    left: 3.4rem;
+    top: 1.4rem;
+    left: 3rem;
     transform: rotate(90deg);
     filter: invert(0.5);
     pointer-events: none;
@@ -21,6 +21,7 @@
   .option_container {
     display: flex;
     align-items: center;
+
 
     img {
       height: 2rem;

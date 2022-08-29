@@ -23,22 +23,19 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
         }),
         option: (styles, {isFocused, isSelected}) => ({
             ...styles,
-            background: isFocused
-                ? '#C9DAFF'
-                : isSelected
-                    ? 'white'
-                    : undefined,
+            background: 'white',
             zIndex: 1
         }),
         menu: base => ({
             ...base,
             zIndex: 100,
-            background: "red"
         }),
         control: (styles, { isHovered}) => ({
             ...styles,
             borderRadius: '10px',
             background: '#F5F5F5',
+            height: '3.5rem',
+            transition: '0.1s all',
             border: isHovered
                 ? '1 px solid #2E6DFE' : '1px solid transparent'
         }),

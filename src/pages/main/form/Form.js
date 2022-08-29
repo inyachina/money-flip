@@ -89,11 +89,11 @@ export const Form = () => {
     }
 
     const handleSuccess = () => {
-         anime({
+        anime({
             targets: '#custom_popup',
             opacity: 1,
         }, '=0')
-        setTimeout(()=> document.getElementById("custom_popup").style.opacity = 0, 3000)
+        setTimeout(() => document.getElementById("custom_popup").style.opacity = 0, 3000)
 
     }
 
@@ -173,14 +173,12 @@ export const Form = () => {
                                     handleAmount={handleSendAmount}
                                     banks={banks}/>
                             </div>
-                            <div className="flex_container mobile">
-                                <input
-                                    className="iban_input"
-                                    value={account}
-                                    onChange={handleAccount}
-                                    placeholder={'IBAN или номер счета'}
-                                />
-                            </div>
+                            <input
+                                className="iban_input mobile"
+                                value={account}
+                                onChange={handleAccount}
+                                placeholder={'IBAN или номер счета'}
+                            />
                             <input placeholder="Имя"
                                    value={name}
                                    required={true}
