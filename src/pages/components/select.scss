@@ -32,10 +32,10 @@
 
   .input_container {
     position: absolute;
-    width: calc(100% - 4.5rem);
-    height: calc(100% - 2px);
+    width: calc(100% - 3.5rem);
+    height: calc(3.5rem - 2px);
     top: 0;
-    right: 0;
+    right: -0.5rem;
     pointer-events: none;
     //background: #5B607A!important;
 
@@ -47,6 +47,7 @@
       pointer-events: auto !important;
       border-left: 1px solid #D9D9D9 !important;
       outline: none !important;
+      transition: 0.1s all!important;
     }
 
     &:focus-visible {

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Select from 'react-select';
 import './select.scss'
 import triangle from '../../assets/img/triangle.svg'
+import lightTriangle from '../../assets/img/light_triangle.svg'
 
 export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) => {
     const [selectedOption, setSelectedOption] = useState(null);
@@ -34,10 +35,11 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
             ...styles,
             borderRadius: '10px',
             background: '#F5F5F5',
-            height: '3.5rem',
+            minHeight: '3.5rem',
+            maxHeight: '3.5rem',
             transition: '0.1s all',
-            border: isHovered
-                ? '1 px solid #2E6DFE' : '1px solid transparent'
+            border: 'none'
+            //     ? '1 px solid #2E6DFE' : '1px solid transparent'
         }),
     }
     return <div className="select_container">

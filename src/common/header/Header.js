@@ -8,8 +8,27 @@ import data from '../../Data.json'
 
 export const Header = () => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const openMenu = () => setIsOpenMenu(true)
-    const closeMenu = () => setIsOpenMenu(false)
+    const openMenu = () => {
+        setIsOpenMenu(true)
+        disableScrolling()
+    }
+    const closeMenu = () => {
+        setIsOpenMenu(false)
+        enableScrolling()
+    }
+
+    function disableScrolling() {
+        const x = window.scrollX;
+        const y = window.scrollY;
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
+    }
+
+    function enableScrolling() {
+        window.onscroll = function () {
+        };
+    }
 
     return (
         <div id="header" className="flex_container">

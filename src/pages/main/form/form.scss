@@ -328,10 +328,11 @@
 
 
 .iban_input{
-  //width: 100%;
   margin-bottom: 0.75rem;
 }
-
+.desktop_iban_input{
+  width: 100%;
+}
 #__react-alert__ div div div{
   background: rgb(217, 217, 217) !important;
   border-radius: 10px!important;

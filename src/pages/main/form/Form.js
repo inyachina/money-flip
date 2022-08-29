@@ -11,7 +11,7 @@ import bitcoin from '../../../assets/img/bitcoin-logo.svg'
 import ethereum from '../../../assets/img/ethereum-logo.svg'
 import dollar from '../../../assets/img/dollar-logo.svg'
 import aed from '../../../assets/img/aed-logo.svg'
-import triangle from '../../../assets/img/triangle.svg'
+import triangle from '../../../assets/img/light_triangle.svg'
 import {SelectImg} from "../../components/SelectImg";
 import {useAlert} from "react-alert";
 import {CustomPopup} from "../../components/popup";
@@ -200,8 +200,8 @@ export const Form = () => {
                         <div className="sending_form__column sending_form__column_right">
                             <div className="flex_container desktop">
                                 <img className="triangle" src={triangle}/>
-                                <input
-                                    className="iban_input"
+                                    <input
+                                    className="iban_input desktop_iban_input"
                                     value={account}
                                     placeholder={'IBAN или номер счета'}
                                     required={true}
