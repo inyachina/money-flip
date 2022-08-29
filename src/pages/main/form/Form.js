@@ -243,7 +243,7 @@ export const Form = () => {
                     >Отправить заявку
                     </button>
                     <div className="agreement">Нажимая на кнопку «Отправить заявку», <span>вы соглашаетесь с
-                        <a>правилами
+                        <a href='/exchangeRule'>правилами
                         обмена</a></span>
                     </div>
                 </div>

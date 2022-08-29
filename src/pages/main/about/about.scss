@@ -52,7 +52,6 @@
     .title {
       font-weight: bold;
       line-height: 110%;
-      font-size: 3.8rem;
       color: $main-dark;
     }
 
@@ -115,9 +114,6 @@
         height: 2rem;
       }
 
-      .title {
-        font-size: 2.7rem;
-      }
 
       .sub_title {
         font-size: 1rem;
@@ -169,5 +165,35 @@
     .accent_button {
       width: 100%;
     }
+  }
+}
+
+
+@media (max-width: 750px){
+  #about .left_side .title{
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 670px){
+  #about .left_side .title{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 540px){
+  #about .left_side .title{
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 400px){
+  #about .left_side .title{
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 370px){
+  #about .left_side .title{
+    font-size: 1.4rem;
   }
 }

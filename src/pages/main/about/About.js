@@ -32,16 +32,16 @@ export const About = () => {
                             {(dollar + dollar / 20).toFixed(2)}
                         </div>
 
-                        <div className="point container__centered">AED</div>
-                        <div>
-                            {aed}
-                        </div>
-                        <div>
-                            {aed + aed / 0.95}
-                        </div>
+                        {/*<div className="point container__centered">AED</div>*/}
+                        {/*<div>*/}
+                        {/*    {aed}*/}
+                        {/*</div>*/}
+                        {/*<div>*/}
+                        {/*    {aed + aed / 0.95}*/}
+                        {/*</div>*/}
                     </span>
                 </div>
-                <div className="title">Платежи для бизнеса с глобальными амбициями</div>
+                <div className="t1 title">Платежи для бизнеса с глобальными амбициями</div>
                 <div className="sub_title">Совершайте платежи через границу и развивайте свой бизнес, где бы вы ни
                     находились. Быстро и безопасно. Такой и должна быть современная коммерция.
                 </div>

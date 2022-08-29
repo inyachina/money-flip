@@ -1,0 +1,46 @@
+@import "src/assets/style/variable";
+
+.exchange_rules {
+  padding: 3rem 1rem;
+
+  div {
+    font-size: 0.8rem;
+  }
+
+  a {
+    color: $main-blue;
+  }
+
+  .option {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+
+    .num {
+      color: $main-blue;
+    }
+  }
+
+  .pipe {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .exchange_rules {
+    padding: 4rem 0.3rem;
+
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    .option {
+      margin-left: 0;
+    }
+
+    .pipe {
+      margin-left: 0;
+    }
+  }
+}

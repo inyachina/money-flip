@@ -6,25 +6,24 @@
   .title {
     color: $main-dark;
     font-weight: 700;
-    font-size: 2.6rem;
     margin: 6rem 0 3rem 0;
   }
 
   .info_columns {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    gap: 3%;
+    grid-template-columns: 27% 27%  32%;
+    gap: 7%;
     margin-bottom: 4rem;
 
     .info_columns_title {
-      font-size: 1.2rem;
       line-height: 150%;
       color: $main-blue;
       margin-bottom: 0.7rem;
+      font-weight: 600;
     }
 
     .text {
-      max-width: 80%;
+      //max-width: 80%;
       font-size: 0.9rem;
     }
   }
@@ -52,18 +51,16 @@
   #aboutUs {
     padding: 0 1rem;
 
-    br {
-      display: none;
-    }
-
     .title {
-      font-size: 2rem;
       margin: 3rem 0 0.5rem 0;
     }
 
     .info_columns {
       display: flex;
       flex-direction: column;
+      .text{
+        max-width: 90%;
+      }
     }
 
     .info_columns_title {
@@ -75,13 +72,8 @@
       flex-direction: column;
       gap: 1rem;
 
-      .dubai {
-        top: 0;
-        position: relative;
-      }
-
-      .rus {
-        top: -9rem;
+      img{
+        max-height: 11rem;
       }
 
       .sub_title {

@@ -1,6 +1,6 @@
 import React from "react";
 import './footer.scss'
-import viber from '../../assets/img/viber.svg'
+import whatsup from '../../assets/img/whatsup_default.svg'
 import tg from '../../assets/img/tg.svg'
 import inst from '../../assets/img/inst.svg'
 import vk from '../../assets/img/vk.svg'
@@ -9,14 +9,16 @@ import data from '../../Data.json';
 export const Footer = () => {
     const socials = [{
         link: data.inst,
-        img: viber
+        img: whatsup
     }, {
         link: data.tg,
         img: tg
-    }, {
-        link: data.inst,
-        img: inst
-    }]
+    },
+    //     {
+    //     link: data.inst,
+    //     img: inst
+    // }
+    ]
     return (<div id="footer" >
         <div className="flex_container__column company">
             <a className="logo" href="/" >MONEYFLIP</a>
@@ -24,8 +26,8 @@ export const Footer = () => {
         </div>
         <div className="flex_container__column contacts">
             <div className="flex_container__column phones">
-                <div>{data.tel_1}</div>
-                <div>{data.tel_2}</div>
+                <a href={`tel:${data.tel_1}`}>{data.tel_1}</a>
+                <a href={`tel:${data.tel_2}`}>{data.tel_2}</a>
             </div>
             <div className="socials flex_container">
                 {socials.map((social) => (

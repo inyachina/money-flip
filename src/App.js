@@ -7,6 +7,7 @@ import {AboutUsPage} from "./pages/about_us/AboutUsPage";
 import {NotFoundPage} from "./pages/not_found/NotFoundPage";
 import {positions, Provider as AlertProvider, transitions} from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+import {ExchangeRulesPage} from "./pages/exchange_rules/ExchangeRulesPage";
 
 function App() {
     const alertOptions = {
@@ -24,6 +25,7 @@ function App() {
                     <Routes>
                         <Route exact path="/" element={<MainPage/>}/>
                         <Route exact path="/aboutUs" element={<AboutUsPage/>}/>
+                        <Route exact path="/exchangeRules" element={<ExchangeRulesPage/>}/>
                         <Route path="*" element={<NotFoundPage/>}/>
                     </Routes>
                 </BrowserRouter>

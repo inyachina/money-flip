@@ -20,7 +20,7 @@ export const AboutUsPage = () => {
         document.title = "MoneyFlip | О нас"
     })
     return <div id="aboutUs">
-        <div className="title">MoneyFlip — это современный сервис <br/> международных бизнес-переводов</div>
+        <div className="t2 title">MoneyFlip — это современный сервис <br className="desktop"/> международных <br className="extra_small_mobile"/>  бизнес-переводов</div>
         <div className="info_columns">
             {infos.map((info) => (
                 <div className="info_column">
