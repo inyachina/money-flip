@@ -7,19 +7,19 @@ import lightSpot from '../../../assets/img/lightSpot.png'
 import {Helmet} from "react-helmet";
 import axios from "axios";
 
-export const About = () => {
+export const About = ({executeScroll}) => {
     const [dollar, setDollar] = useState(0)
     const [aed, setAed] = useState(0)
 
-    useEffect(()=>{
-         axios.get("https://www.cbr-xml-daily.ru/daily_json.js")
+    useEffect(() => {
+        axios.get("https://www.cbr-xml-daily.ru/daily_json.js")
             .then((result) => {
                 setDollar(result.data.Valute.USD.Value)
             })
     })
     return (
         <div id="about">
-            <Helmet type="text/javascript"  src="https://www.cbr-xml-daily.ru/money.js"/>
+            <Helmet type="text/javascript" src="https://www.cbr-xml-daily.ru/money.js"/>
             <div className="left_side">
                 <div className="flex_container tools">
                     <button className="exchange_btn">Переводы без санкций</button>
@@ -45,7 +45,10 @@ export const About = () => {
                 <div className="sub_title">Совершайте платежи через границу и развивайте свой бизнес, где бы вы ни
                     находились. Быстро и безопасно. Такой и должна быть современная коммерция.
                 </div>
-                <button className="accent_button">Оплатить</button>
+                <button className="accent_button"
+                        onClick={() =>window.location.href = '#form'}
+                >Оплатить
+                </button>
             </div>
             <div className="right_side container__centered">
                 <div className="json_container__relative">

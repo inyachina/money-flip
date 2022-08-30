@@ -4,7 +4,33 @@
 .select_container {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 3.5rem;
+  max-height: 3.5rem;
+
+  > div{
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+  }
+  input {
+    //background: #5B607A!important;
+    width: calc(100% - 5rem) !important;
+    height: calc(100% - 4px)!important;
+    border-radius: 0 10px 10px 0 !important;
+    pointer-events: auto !important;
+    border-left: 1px solid #D9D9D9 !important;
+    outline: none !important;
+    transition: 0.1s all !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    //background: rgba(1,1,1,0.0)!important;
+
+    &:focus-visible {
+      border-color: $main-blue !important;
+      border-left: 1px solid $main-blue !important;
+    }
+  }
 
   .triangle {
     position: absolute;
@@ -30,29 +56,15 @@
     }
   }
 
-  .input_container {
-    position: absolute;
-    width: calc(100% - 3.5rem);
-    height: calc(3.5rem - 2px);
-    top: 0;
-    right: -0.5rem;
-    pointer-events: none;
-    //background: #5B607A!important;
+  //.input_container {
+  //  position: absolute;
+  //  //width: calc(100% - 3.5rem);
+  //  //min-height: calc(100% - 2px);
+  //  //max-height: calc(100% - 2px);
+  //  top: 0;
+  //  right: -0.5rem;
+  //  pointer-events: none;
+  //  //background: #5B607A!important;
 
-    input {
-      //background: #5B607A!important;
-      width: calc(100% - 1.3rem) !important;
-      height: calc(100% - 2px) !important;
-      border-radius: 0 10px 10px 0 !important;
-      pointer-events: auto !important;
-      border-left: 1px solid #D9D9D9 !important;
-      outline: none !important;
-      transition: 0.1s all!important;
-    }
 
-    &:focus-visible {
-      border-color: $main-blue !important;
-      border-left: 1px solid $main-blue !important;
-    }
-  }
 }

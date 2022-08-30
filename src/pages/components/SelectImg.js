@@ -35,10 +35,11 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
             ...styles,
             borderRadius: '10px',
             background: '#F5F5F5',
-            minHeight: '3.5rem',
-            maxHeight: '3.5rem',
+            height: '100%',
+            width: '100%',
             transition: '0.1s all',
-            border: 'none'
+            border: 'none',
+            position: 'absolute',
             //     ? '1 px solid #2E6DFE' : '1px solid transparent'
         }),
     }
@@ -61,8 +62,8 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
                 </div>
             )}
         />
-        {(withOutInput) ??
-        <div className="input_container">
+        {/*{(withOutInput) ??*/}
+        {/*<div className="input_container">*/}
             <input
                 placeholder="Сумма"
                 type={"number"}
@@ -70,6 +71,6 @@ export const SelectImg = ({banks, withOutInput, handleBankIndex, handleAmount}) 
                 required={true}
                 onChange={handleChangeInput}
                 value={amount}/>
-        </div>}
+        {/*</div>}*/}
     </div>
 }

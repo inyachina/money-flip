@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import useFetch from 'use-http'
 import PhoneInput from 'react-phone-input-2'
 import data from '../../../Data.json'
@@ -200,7 +200,7 @@ export const Form = () => {
                         <div className="sending_form__column sending_form__column_right">
                             <div className="flex_container desktop">
                                 <img className="triangle" src={triangle}/>
-                                    <input
+                                <input
                                     className="iban_input desktop_iban_input"
                                     value={account}
                                     placeholder={'IBAN или номер счета'}
